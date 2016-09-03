@@ -223,6 +223,15 @@ h2 {
 	color: #fff;
 }
 
+h2#warning {
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-top: 2px solid black;
+	display: none;
+	background: #FFCC00;
+	color: black;
+}
+
 .game p {
 	margin-top: 0.5em;
 	font-size: 1.8em;
