@@ -25,13 +25,15 @@ $(document).ready(function(){
   		$('h2#feedback').text('Make your Guess!');
   		$('ul#guessList').children().remove();
   		$('span#count').text(0);
+  		$('h2#warning').fadeOut();
   		beaten = newGame();
   	})
 
   	$('input#guessButton').on('click',function(event){
 		event.preventDefault();
+		$('h2#warning').fadeOut();
 		if(beaten == true){
-			alert('You won this round! Click new game to try again.');
+			$('h2#warning').fadeIn().text('You won this round! Click new game to try again.');
 			$('input#userGuess').val('');
 		} else {
 			beaten = checkGuess();
@@ -58,9 +60,9 @@ var checkGuess = function(){
 	userGuess = parseInt($('input#userGuess').val());
 	$('input#userGuess').val('');
 	if(isNaN(userGuess)) {
-		alert('Please Enter a Valid Number');
+		$('h2#warning').fadeIn().text('Please Enter a Valid Number');
 	} else if (userGuess < 1 || userGuess > 100) {
-		alert('Please Enter a Number Between 1 and 100')
+		$('h2#warning').fadeIn().text('Please Enter a Number Between 1 and 100');
 	} else {
 		guessList.push(userGuess);
 		guessCount++;
